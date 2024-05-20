@@ -248,6 +248,11 @@ const char *qemu_plugin_insn_symbol(const struct qemu_plugin_insn *insn)
     return sym[0] != 0 ? sym : NULL;
 }
 
+const char *qemu_plugin_vaddr_symbol(uint64_t vaddr) {
+    const char *sym = lookup_symbol(vaddr);
+    return sym[0] != 0 ? sym : NULL;
+}
+
 /*
  * The memory queries allow the plugin to query information about a
  * memory access.

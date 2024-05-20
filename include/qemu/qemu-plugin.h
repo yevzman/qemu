@@ -627,6 +627,16 @@ QEMU_PLUGIN_API
 const char *qemu_plugin_insn_symbol(const struct qemu_plugin_insn *insn);
 
 /**
+ * qemu_plugin_vaddr_symbol() - best effort symbol lookup by vaddr
+ * @vaddr: virtual address of instruction
+ *
+ * Return a static string referring to the symbol. This is dependent
+ * on the binary QEMU is running having provided a symbol table.
+ */
+QEMU_PLUGIN_API
+const char *qemu_plugin_vaddr_symbol(uint64_t vaddr);
+
+/**
  * qemu_plugin_vcpu_for_each() - iterate over the existing vCPU
  * @id: plugin ID
  * @cb: callback function
